@@ -1,0 +1,1298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shaik Akhila — Full-Stack Developer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #0a0f1e;
+        --surface: #111827;
+        --surface2: #1a1f35;
+        --indigo: #6c63ff;
+        --indigo-glow: rgba(108, 99, 255, 0.18);
+        --lavender: #c4bfff;
+        --white: #f0efff;
+        --muted: #6b7280;
+        --border: rgba(108, 99, 255, 0.2);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--white);
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.1rem 6vw;
+        background: rgba(10, 15, 30, 0.8);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-logo {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 1.15rem;
+        color: var(--white);
+        text-decoration: none;
+        letter-spacing: -0.02em;
+      }
+      .nav-logo span {
+        color: var(--indigo);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--lavender);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--white);
+      }
+      .nav-cta {
+        background: var(--indigo);
+        color: #fff !important;
+        padding: 0.45rem 1.1rem;
+        border-radius: 6px;
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+        transition: opacity 0.2s !important;
+      }
+      .nav-cta:hover {
+        opacity: 0.85;
+      }
+
+      /* ── HERO ── */
+      #hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 7rem 6vw 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .hero-eyebrow {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.82rem;
+        color: var(--indigo);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .hero-eyebrow::before {
+        content: "";
+        display: block;
+        width: 28px;
+        height: 2px;
+        background: var(--indigo);
+      }
+      h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(2.6rem, 5vw, 4rem);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        color: var(--white);
+      }
+      h1 .name-highlight {
+        display: block;
+        color: var(--indigo);
+        background: linear-gradient(135deg, #6c63ff, #a78bfa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hero-desc {
+        margin-top: 1.4rem;
+        font-size: 1.05rem;
+        color: var(--lavender);
+        max-width: 480px;
+        line-height: 1.75;
+      }
+      .hero-stats {
+        display: flex;
+        gap: 2.5rem;
+        margin-top: 2rem;
+      }
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.1rem;
+      }
+      .stat-num {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--white);
+      }
+      .stat-label {
+        font-size: 0.78rem;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2.2rem;
+      }
+      .btn-primary {
+        background: var(--indigo);
+        color: #fff;
+        padding: 0.75rem 1.8rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.92rem;
+        text-decoration: none;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        box-shadow: 0 0 0 0 rgba(108, 99, 255, 0);
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(108, 99, 255, 0.4);
+      }
+      .btn-ghost {
+        border: 1px solid var(--border);
+        color: var(--lavender);
+        padding: 0.75rem 1.8rem;
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 0.92rem;
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .btn-ghost:hover {
+        border-color: var(--indigo);
+        color: var(--white);
+      }
+
+      /* Terminal card */
+      .terminal {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 0 60px rgba(108, 99, 255, 0.12);
+      }
+      .terminal-bar {
+        background: var(--surface2);
+        padding: 0.7rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .dot-red {
+        background: #ff5f57;
+      }
+      .dot-yellow {
+        background: #ffbd2e;
+      }
+      .dot-green {
+        background: #28c840;
+      }
+      .terminal-title {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--muted);
+        margin-left: 0.5rem;
+      }
+      .terminal-body {
+        padding: 1.6rem;
+      }
+      .t-line {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.82rem;
+        line-height: 1.9;
+        display: block;
+      }
+      .t-prompt {
+        color: var(--indigo);
+      }
+      .t-cmd {
+        color: #a78bfa;
+      }
+      .t-output {
+        color: var(--lavender);
+      }
+      .t-green {
+        color: #34d399;
+      }
+      .t-yellow {
+        color: #fbbf24;
+      }
+      .cursor {
+        display: inline-block;
+        width: 8px;
+        height: 14px;
+        background: var(--indigo);
+        vertical-align: text-bottom;
+        animation: blink 1s step-end infinite;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      /* ── SECTION SHARED ── */
+      section {
+        padding: 6rem 6vw;
+      }
+      .section-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .section-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--indigo);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 0.8rem;
+      }
+      .section-label::before {
+        content: "//";
+        color: var(--indigo);
+        font-weight: 700;
+      }
+      h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        color: var(--white);
+        margin-bottom: 0.6rem;
+      }
+      .section-sub {
+        color: var(--muted);
+        font-size: 1rem;
+        margin-bottom: 3rem;
+        max-width: 520px;
+      }
+
+      /* ── SKILLS ── */
+      #skills {
+        background: var(--surface);
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.2rem;
+      }
+      .skill-card {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition:
+          border-color 0.25s,
+          box-shadow 0.25s;
+      }
+      .skill-card:hover {
+        border-color: var(--indigo);
+        box-shadow: 0 0 24px var(--indigo-glow);
+      }
+      .skill-card-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--indigo);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        padding: 0.28rem 0.7rem;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        color: var(--lavender);
+        background: var(--surface2);
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .tag:hover {
+        background: var(--indigo-glow);
+        color: var(--white);
+        border-color: var(--indigo);
+      }
+
+      /* ── PROJECTS ── */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 1.5rem;
+      }
+      .project-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.8rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition:
+          border-color 0.25s,
+          transform 0.25s,
+          box-shadow 0.25s;
+        position: relative;
+        overflow: hidden;
+      }
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--indigo), #a78bfa);
+        opacity: 0;
+        transition: opacity 0.25s;
+      }
+      .project-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--indigo);
+        box-shadow: 0 12px 40px var(--indigo-glow);
+      }
+      .project-card:hover::before {
+        opacity: 1;
+      }
+      .project-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .project-name {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--white);
+      }
+      .project-links {
+        display: flex;
+        gap: 0.6rem;
+        flex-shrink: 0;
+      }
+      .icon-link {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--lavender);
+        text-decoration: none;
+        font-size: 0.75rem;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .icon-link:hover {
+        background: var(--indigo);
+        color: #fff;
+        border-color: var(--indigo);
+      }
+      .project-desc {
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.65;
+      }
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: auto;
+      }
+      .tech-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+        border-radius: 4px;
+        background: var(--indigo-glow);
+        color: var(--lavender);
+        border: 1px solid rgba(108, 99, 255, 0.3);
+      }
+
+      /* ── EXPERIENCE ── */
+      #experience {
+        background: var(--surface);
+      }
+      .exp-card {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 2rem 2.2rem;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0.5rem;
+        align-items: start;
+        transition: border-color 0.25s;
+      }
+      .exp-card:hover {
+        border-color: var(--indigo);
+      }
+      .exp-role {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--white);
+      }
+      .exp-company {
+        color: var(--indigo);
+        font-weight: 600;
+        font-size: 0.92rem;
+        margin-top: 0.15rem;
+      }
+      .exp-duration {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--muted);
+        text-align: right;
+        padding: 0.3rem 0.75rem;
+        background: var(--surface2);
+        border-radius: 20px;
+        align-self: start;
+        white-space: nowrap;
+        border: 1px solid var(--border);
+      }
+      .exp-bullets {
+        grid-column: 1 / -1;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+        margin-top: 1rem;
+      }
+      .exp-bullets li {
+        font-size: 0.88rem;
+        color: var(--lavender);
+        line-height: 1.65;
+        padding-left: 1.2rem;
+        position: relative;
+      }
+      .exp-bullets li::before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        color: var(--indigo);
+      }
+
+      /* ── EDUCATION ── */
+      .edu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.2rem;
+      }
+      .edu-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.6rem;
+        transition: border-color 0.25s;
+      }
+      .edu-card:hover {
+        border-color: var(--indigo);
+      }
+      .edu-degree {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 0.35rem;
+      }
+      .edu-inst {
+        font-size: 0.85rem;
+        color: var(--lavender);
+        margin-bottom: 0.3rem;
+      }
+      .edu-meta {
+        display: flex;
+        gap: 1rem;
+        margin-top: 0.8rem;
+      }
+      .edu-badge {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        padding: 0.22rem 0.65rem;
+        border-radius: 4px;
+        background: var(--indigo-glow);
+        color: var(--lavender);
+        border: 1px solid rgba(108, 99, 255, 0.3);
+      }
+
+      /* ── ACHIEVEMENTS ── */
+      #achievements {
+        background: var(--surface);
+      }
+      .achieve-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+      }
+      .achieve-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 1.1rem 1.4rem;
+        transition: border-color 0.25s;
+      }
+      .achieve-item:hover {
+        border-color: var(--indigo);
+      }
+      .achieve-icon {
+        color: var(--indigo);
+        font-size: 1.1rem;
+        margin-top: 0.05rem;
+        flex-shrink: 0;
+      }
+      .achieve-text {
+        color: var(--lavender);
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+
+      /* ── CONTACT ── */
+      #contact {
+        text-align: center;
+        padding: 6rem 6vw 5rem;
+      }
+      .contact-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 3.5rem;
+        max-width: 640px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+      }
+      .contact-card::after {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: var(--indigo-glow);
+        filter: blur(60px);
+        pointer-events: none;
+      }
+      .contact-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+      }
+      .contact-desc {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+      }
+      .contact-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+      }
+      .contact-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: var(--lavender);
+        text-decoration: none;
+        font-size: 0.9rem;
+        padding: 0.7rem 1.4rem;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: var(--bg);
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+        width: 100%;
+        max-width: 320px;
+      }
+      .contact-link:hover {
+        border-color: var(--indigo);
+        color: var(--white);
+      }
+      .contact-link-icon {
+        font-size: 1rem;
+        color: var(--indigo);
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 1.8rem 6vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 100%;
+      }
+      .footer-text {
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      /* ── BG GRID ── */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background-image:
+          linear-gradient(rgba(108, 99, 255, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(108, 99, 255, 0.04) 1px, transparent 1px);
+        background-size: 48px 48px;
+        pointer-events: none;
+      }
+
+      /* ── GLOW ORBS ── */
+      .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(120px);
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0.45;
+      }
+      .orb-1 {
+        width: 500px;
+        height: 500px;
+        background: #3b3298;
+        top: -100px;
+        right: -100px;
+      }
+      .orb-2 {
+        width: 400px;
+        height: 400px;
+        background: #1e1b6b;
+        bottom: 10%;
+        left: -100px;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 768px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        .terminal {
+          display: none;
+        }
+        nav {
+          padding: 1rem 5vw;
+        }
+        .nav-links {
+          display: none;
+        }
+        .hero-stats {
+          gap: 1.5rem;
+        }
+        .exp-card {
+          grid-template-columns: 1fr;
+        }
+        .exp-duration {
+          text-align: left;
+          width: fit-content;
+        }
+        footer {
+          flex-direction: column;
+          gap: 0.5rem;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- NAV -->
+    <nav>
+      <a href="#hero" class="nav-logo">akhila<span>.</span>dev</a>
+      <ul class="nav-links">
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-eyebrow">Full-Stack Developer</div>
+          <h1>
+            Hi, I'm<br />
+            <span class="name-highlight">Shaik Akhila</span>
+          </h1>
+          <p class="hero-desc">
+            I build fast, scalable web applications — from pixel-perfect
+            frontends to robust backend APIs. Currently pursuing B.Tech CSE at
+            RGUKT Nuzvid with a CGPA of 8.975.
+          </p>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-num">240+</span>
+              <span class="stat-label">LeetCode Solved</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">4+</span>
+              <span class="stat-label">Live Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">8.975</span>
+              <span class="stat-label">CGPA</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary">View Projects</a>
+            <a href="#contact" class="btn-ghost">Get In Touch</a>
+          </div>
+        </div>
+
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+            <span class="terminal-title">akhila@portfolio ~ </span>
+          </div>
+          <div class="terminal-body">
+            <span class="t-line"
+              ><span class="t-prompt">$ </span
+              ><span class="t-cmd">whoami</span></span
+            >
+            <span class="t-line t-output"
+              >Shaik Akhila — Full-Stack Developer</span
+            >
+            <span class="t-line" style="margin-top: 0.6rem"
+              ><span class="t-prompt">$ </span
+              ><span class="t-cmd">cat skills.json</span></span
+            >
+            <span class="t-line t-output">{</span>
+            <span class="t-line t-output"
+              >&nbsp;&nbsp;"frontend":
+              <span class="t-green">"React, Tailwind, Vite"</span>,</span
+            >
+            <span class="t-line t-output"
+              >&nbsp;&nbsp;"backend":
+              <span class="t-green">"Node.js, Express, REST"</span>,</span
+            >
+            <span class="t-line t-output"
+              >&nbsp;&nbsp;"database":
+              <span class="t-green">"MongoDB, Supabase"</span>,</span
+            >
+            <span class="t-line t-output"
+              >&nbsp;&nbsp;"language":
+              <span class="t-green">"Python, JS, SQL"</span></span
+            >
+            <span class="t-line t-output">}</span>
+            <span class="t-line" style="margin-top: 0.6rem"
+              ><span class="t-prompt">$ </span
+              ><span class="t-cmd">git log --oneline</span></span
+            >
+            <span class="t-line t-output"
+              ><span class="t-yellow">a3f2b1c</span> Built Ride Beacon
+              (Uber-like platform)</span
+            >
+            <span class="t-line t-output"
+              ><span class="t-yellow">9e1d4a8</span> Shipped Assignment
+              Checker</span
+            >
+            <span class="t-line t-output"
+              ><span class="t-yellow">2c7f0e5</span> Launched Vibe social
+              network</span
+            >
+            <span class="t-line" style="margin-top: 0.6rem"
+              ><span class="t-prompt">$ </span><span class="cursor"></span
+            ></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-inner">
+        <div class="section-label">Technical Stack</div>
+        <h2>Skills & Technologies</h2>
+        <p class="section-sub">
+          Tools and technologies I work with to bring ideas to life.
+        </p>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-card-title">Languages</div>
+            <div class="skill-tags">
+              <span class="tag">Python</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">SQL</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-title">Frontend</div>
+            <div class="skill-tags">
+              <span class="tag">React.js</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">Vite</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">Streamlit</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-title">Backend</div>
+            <div class="skill-tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express.js</span>
+              <span class="tag">REST APIs</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-title">Databases</div>
+            <div class="skill-tags">
+              <span class="tag">MongoDB</span>
+              <span class="tag">Supabase</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-title">Tools & Deployment</div>
+            <div class="skill-tags">
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">Postman</span>
+              <span class="tag">Vercel</span>
+              <span class="tag">Render</span>
+              <span class="tag">Cloudinary</span>
+              <span class="tag">Google Cloud</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-title">Soft Skills</div>
+            <div class="skill-tags">
+              <span class="tag">Problem Solving</span>
+              <span class="tag">Leadership</span>
+              <span class="tag">Team Player</span>
+              <span class="tag">Quick Learning</span>
+              <span class="tag">Event Management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-inner">
+        <div class="section-label">Work</div>
+        <h2>Featured Projects</h2>
+        <p class="section-sub">
+          Production-ready applications built and deployed independently.
+        </p>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-name">Assignment Checker</div>
+              <div class="project-links">
+                <a
+                  href="https://assignment-checker-frontend.vercel.app/"
+                  class="icon-link"
+                  title="Live Demo"
+                  >↗</a
+                >
+                <a
+                  href="https://github.com/shaikakhila26/assignment-checker-frontend"
+                  class="icon-link"
+                  title="GitHub"
+                  >⌥</a
+                >
+              </div>
+            </div>
+            <p class="project-desc">
+              Academic assignment management platform with dedicated dashboards
+              for teachers and students. Features assignment creation,
+              submission tracking, classroom management, and result workflows.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">REST APIs</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-name">Ride Beacon</div>
+              <div class="project-links">
+                <a
+                  href="https://ridebeacon-frontend.vercel.app/"
+                  class="icon-link"
+                  title="Live Demo"
+                  >↗</a
+                >
+                <a
+                  href="https://github.com/shaikakhila26/ridebeacon-frontend"
+                  class="icon-link"
+                  title="GitHub"
+                  >⌥</a
+                >
+              </div>
+            </div>
+            <p class="project-desc">
+              Uber-like ride booking platform with role-based systems for riders
+              and drivers. Integrated Google Maps for live location tracking and
+              Stripe for seamless payment processing.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Express.js</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">Stripe</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-name">Vibe</div>
+              <div class="project-links">
+                <a
+                  href="https://social-app-rho-jade.vercel.app/"
+                  class="icon-link"
+                  title="Live Demo"
+                  >↗</a
+                >
+                <a
+                  href="https://github.com/shaikakhila26/social-app"
+                  class="icon-link"
+                  title="GitHub"
+                  >⌥</a
+                >
+              </div>
+            </div>
+            <p class="project-desc">
+              Full-stack social networking app with JWT auth, post creation,
+              image uploads, likes, comments, and personalized feeds. Media
+              handled via Cloudinary CDN.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Express.js</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Cloudinary</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-name">Vault IQ</div>
+              <div class="project-links">
+                <a
+                  href="https://vaultiqfrontend-c6udvznwvjeym32qcqtudt.streamlit.app/"
+                  class="icon-link"
+                  title="Live Demo"
+                  >↗</a
+                >
+                <a
+                  href="https://github.com/shaikakhila26/vaultIQ_frontend"
+                  class="icon-link"
+                  title="GitHub"
+                  >⌥</a
+                >
+              </div>
+            </div>
+            <p class="project-desc">
+              Document search and management platform with Google Drive
+              integration. AI-powered search for efficient file discovery,
+              metadata-based retrieval, and chat history management.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">Google Drive API</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-name">Vault IQ</div>
+              <div class="project-links">
+                <a
+                  href="https://proofsheet.vercel.app/"
+                  class="icon-link"
+                  title="Live Demo"
+                  >↗</a
+                >
+                <a
+                  href="https://github.com/shaikakhila26/proofsheet"
+                  class="icon-link"
+                  title="GitHub"
+                  >⌥</a
+                >
+              </div>
+            </div>
+            <p class="project-desc">
+              A small, free tool to arrange multiple photos into one printable
+              collage — styled like an old film proof sheet on a light table.
+              Everything runs client-side in the browser; no images are ever
+              uploaded to a server.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">Vanilla JavaScript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-inner">
+        <div class="section-label">Career</div>
+        <h2>Experience</h2>
+        <p class="section-sub">Professional work in production environments.</p>
+        <div class="exp-card">
+          <div>
+            <div class="exp-role">Web Development Intern</div>
+            <div class="exp-company">Labmentix · Remote</div>
+          </div>
+          <div class="exp-duration">Jun 2025 – Jan 2026</div>
+          <ul class="exp-bullets">
+            <li>
+              Developed responsive frontend components using React.js and
+              Tailwind CSS for production web applications.
+            </li>
+            <li>
+              Collaborated on building RESTful APIs using Node.js and Express.js
+              for backend services.
+            </li>
+            <li>
+              Debugged and resolved application issues, improving reliability
+              and overall user experience.
+            </li>
+            <li>
+              Used Git and GitHub workflows for version control and seamless
+              team collaboration.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="section-inner">
+        <div class="section-label">Academic</div>
+        <h2>Education</h2>
+        <p class="section-sub">
+          Strong academic foundation in Computer Science.
+        </p>
+        <div class="edu-grid">
+          <div class="edu-card">
+            <div class="edu-degree">
+              B.Tech — Computer Science & Engineering
+            </div>
+            <div class="edu-inst">RGUKT Nuzvid, Andhra Pradesh</div>
+            <div class="edu-meta">
+              <span class="edu-badge">2023–2027</span>
+              <span class="edu-badge">CGPA 8.975</span>
+            </div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-degree">Pre-University Course (PUC)</div>
+            <div class="edu-inst">RGUKT Nuzvid, Andhra Pradesh</div>
+            <div class="edu-meta">
+              <span class="edu-badge">2021–2023</span>
+              <span class="edu-badge">CGPA 9.76</span>
+            </div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-degree">Secondary School Certificate (SSC)</div>
+            <div class="edu-inst">Care English Medium Highschool, AP</div>
+            <div class="edu-meta">
+              <span class="edu-badge">2020–2021</span>
+              <span class="edu-badge">CGPA 10.0 ✦</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements">
+      <div class="section-inner">
+        <div class="section-label">Recognition</div>
+        <h2>Achievements</h2>
+        <p class="section-sub">
+          Milestones that reflect consistent effort and growth.
+        </p>
+        <div class="achieve-list">
+          <div class="achieve-item">
+            <div class="achieve-icon">⚡</div>
+            <div class="achieve-text">
+              Solved <strong>240+ LeetCode problems</strong> across Data
+              Structures and Algorithms.
+            </div>
+          </div>
+          <div class="achieve-item">
+            <div class="achieve-icon">🏆</div>
+            <div class="achieve-text">
+              <strong>Top 4 Team</strong> at Smart India Hackathon Internal
+              Round 2025.
+            </div>
+          </div>
+          <div class="achieve-item">
+            <div class="achieve-icon">🚀</div>
+            <div class="achieve-text">
+              <strong>Participant</strong> — Amaravati Quantum Valley Hackathon
+              2025.
+            </div>
+          </div>
+          <div class="achieve-item">
+            <div class="achieve-icon">💼</div>
+            <div class="achieve-text">
+              <strong>Web Development Intern</strong> at Labmentix — building
+              production-grade applications.
+            </div>
+          </div>
+          <div class="achieve-item">
+            <div class="achieve-icon">📦</div>
+            <div class="achieve-text">
+              Built and deployed
+              <strong>4+ production-ready full-stack applications</strong> with
+              live deployments.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-inner">
+        <div class="contact-card">
+          <div class="section-label" style="justify-content: center">
+            Contact
+          </div>
+          <div class="contact-title">Let's Build Together</div>
+          <p class="contact-desc">
+            Open to internships, collaborations, and interesting projects. Reach
+            out anytime.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:akhilashaik2605@gmail.com" class="contact-link">
+              <span class="contact-link-icon">✉</span>
+              akhilashaik2605@gmail.com
+            </a>
+            <a href="tel:9676023276" class="contact-link">
+              <span class="contact-link-icon">☎</span>
+              +91 9676023276
+            </a>
+            <a
+              href="https://www.linkedin.com/in/akhila-shaik-8100b2344"
+              target="_blank"
+              class="contact-link"
+            >
+              <span class="contact-link-icon">in</span>
+              linkedin.com/in/akhila-shaik-8100b2344
+            </a>
+            <a
+              href="https://github.com/shaikakhila26"
+              target="_blank"
+              class="contact-link"
+            >
+              <span class="contact-link-icon">⌥</span>
+              github.com/shaikakhila26
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <span class="footer-text">© 2026 Shaik Akhila</span>
+      <span class="footer-text">Built with ♥ · Designed to impress</span>
+    </footer>
+  </body>
+</html>
