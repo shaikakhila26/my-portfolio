@@ -4,6 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shaik Akhila — Full-Stack Developer</title>
+    <meta
+      name="description"
+      content="Shaik Akhila — Full-stack developer and B.Tech CSE student at RGUKT Nuzvid. React, Node.js, Express, MongoDB, Supabase. 15+ projects shipped, 240+ LeetCode problems solved."
+    />
+    <meta name="author" content="Shaik Akhila" />
+    <meta property="og:title" content="Shaik Akhila — Full-Stack Developer" />
+    <meta
+      property="og:description"
+      content="Full-stack developer building production-ready web apps with React, Node.js and Express. B.Tech CSE, RGUKT Nuzvid."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0f1e'/%3E%3Ctext x='50' y='68' font-size='58' font-family='monospace' font-weight='700' fill='%236c63ff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
@@ -462,6 +478,26 @@
         color: #fff;
         border-color: var(--indigo);
       }
+      .text-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.4rem 0.85rem;
+        border-radius: 8px;
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        color: var(--lavender);
+        text-decoration: none;
+        font-size: 0.75rem;
+        font-weight: 600;
+        white-space: nowrap;
+        transition: background 0.2s, color 0.2s, border-color 0.2s;
+      }
+      .text-link:hover {
+        background: var(--indigo);
+        color: #fff;
+        border-color: var(--indigo);
+      }
       .project-desc {
         color: var(--muted);
         font-size: 0.88rem;
@@ -746,7 +782,510 @@
         left: -100px;
       }
 
+      /* ── LIGHT THEME OVERRIDE ── */
+      body.light {
+        --bg: #f6f5fb;
+        --surface: #ffffff;
+        --surface2: #eeecfb;
+        --lavender: #4a4770;
+        --white: #171426;
+        --muted: #6b6b85;
+        --border: rgba(108, 99, 255, 0.28);
+      }
+      body.light .orb {
+        opacity: 0.18;
+      }
+      body.light nav {
+        background: rgba(246, 245, 251, 0.85);
+      }
+
+      /* ── PROGRESS BAR ── */
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 0%;
+        background: linear-gradient(90deg, var(--indigo), #a78bfa);
+        z-index: 200;
+        transition: width 0.1s ease-out;
+      }
+
+      /* ── NAV EXTRAS ── */
+      .nav-links {
+        align-items: center;
+      }
+      .theme-toggle {
+        background: none;
+        border: 1px solid var(--border);
+        color: var(--lavender);
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: border-color 0.2s;
+      }
+      .theme-toggle:hover {
+        border-color: var(--indigo);
+      }
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px;
+      }
+      .nav-toggle span {
+        width: 22px;
+        height: 2px;
+        background: var(--white);
+        display: block;
+      }
+      .nav-links a.active {
+        color: var(--white);
+      }
+
+      /* ── ABOUT ── */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 3rem;
+        align-items: start;
+      }
+      .about-text p {
+        color: var(--lavender);
+        font-size: 0.98rem;
+        line-height: 1.85;
+        margin-bottom: 1.1rem;
+      }
+      .about-facts {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .fact-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.85rem 1.1rem;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--surface);
+        font-size: 0.85rem;
+      }
+      .fact-label {
+        color: var(--muted);
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .fact-value {
+        color: var(--white);
+        font-weight: 600;
+        text-align: right;
+      }
+
+      /* ── PROJECT FILTERS ── */
+      .filter-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 2.4rem;
+      }
+      .filter-btn {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        padding: 0.5rem 1.1rem;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--lavender);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .filter-btn:hover {
+        border-color: var(--indigo);
+        color: var(--white);
+      }
+      .filter-btn.active {
+        background: var(--indigo);
+        border-color: var(--indigo);
+        color: #fff;
+      }
+      .project-card[hidden] {
+        display: none;
+      }
+      .build-card[hidden] {
+        display: none;
+      }
+      .placeholder-badge {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.65rem;
+        color: #fbbf24;
+        border: 1px solid rgba(251, 191, 36, 0.35);
+        background: rgba(251, 191, 36, 0.08);
+        padding: 0.15rem 0.5rem;
+        border-radius: 10px;
+        white-space: nowrap;
+      }
+
+      /* ── CERTIFICATIONS ── */
+      .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.2rem;
+      }
+      .cert-card {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.4rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        transition: border-color 0.25s;
+      }
+      .cert-card:hover {
+        border-color: var(--indigo);
+      }
+      .cert-name {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: 0.98rem;
+        color: var(--white);
+      }
+      .cert-meta {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+      .cert-score {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: #34d399;
+        margin-top: 0.2rem;
+      }
+      .cert-link {
+        margin-top: 0.6rem;
+        font-size: 0.78rem;
+        color: var(--indigo);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .cert-link:hover {
+        text-decoration: underline;
+      }
+
+      /* ── GITHUB STATS ── */
+      .stats-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+        justify-content: center;
+        margin-top: 3rem;
+      }
+      .stats-row img {
+        border-radius: 12px;
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* ── BACK TO TOP ── */
+      #back-to-top {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--indigo);
+        color: #fff;
+        border: none;
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 24px var(--indigo-glow);
+        z-index: 150;
+        transition: opacity 0.2s;
+      }
+      #back-to-top.show {
+        display: flex;
+      }
+
+      /* ── RESUME BUTTON ── */
+      .btn-outline-sm {
+        border: 1px solid var(--border);
+        color: var(--lavender);
+        padding: 0.45rem 1rem;
+        border-radius: 6px;
+        font-size: 0.82rem !important;
+        font-weight: 600 !important;
+        text-decoration: none;
+        transition: border-color 0.2s, color 0.2s;
+      }
+      .btn-outline-sm:hover {
+        border-color: var(--indigo);
+        color: var(--white);
+      }
+
+      /* ── FEATURED WORK (case-study cards) ── */
+      .featured-work-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        margin-bottom: 3rem;
+      }
+      .case-card {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.8rem 2rem;
+        background: var(--bg);
+        transition: border-color 0.25s;
+      }
+      .case-card:hover {
+        border-color: var(--indigo);
+      }
+      .case-top-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 0.3rem;
+      }
+      .case-tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--indigo);
+        border: 1px solid var(--border);
+        padding: 0.2rem 0.6rem;
+        border-radius: 20px;
+      }
+      .case-date {
+        font-size: 0.75rem;
+        color: var(--muted);
+        font-family: "JetBrains Mono", monospace;
+      }
+      .case-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--white);
+        margin: 0.3rem 0 1.1rem;
+      }
+      .case-grid-inner {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 1.1rem;
+        margin-bottom: 1.2rem;
+      }
+      .case-block-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        color: var(--muted);
+        letter-spacing: 0.06em;
+        margin-bottom: 0.3rem;
+      }
+      .case-block-text {
+        font-size: 0.85rem;
+        color: var(--lavender);
+        line-height: 1.55;
+      }
+      .case-links-row {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      /* ── SMALLER BUILDS ── */
+      .smaller-builds-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+        gap: 1.1rem;
+      }
+      .build-card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.3rem 1.4rem;
+        background: var(--surface);
+        transition: border-color 0.2s;
+      }
+      .build-card:hover {
+        border-color: var(--indigo);
+      }
+      .build-cat {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.65rem;
+        color: var(--indigo);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .build-title {
+        font-weight: 700;
+        color: var(--white);
+        font-size: 0.95rem;
+        margin: 0.35rem 0 0.3rem;
+      }
+      .build-stack {
+        font-size: 0.72rem;
+        color: var(--muted);
+        font-family: "JetBrains Mono", monospace;
+        margin-bottom: 0.5rem;
+      }
+      .build-desc {
+        font-size: 0.82rem;
+        color: var(--lavender);
+        line-height: 1.5;
+        margin-bottom: 0.6rem;
+      }
+
+      /* ── TIMELINE ── */
+      .timeline {
+        position: relative;
+        padding-left: 2rem;
+        border-left: 2px solid var(--border);
+      }
+      .timeline-item {
+        position: relative;
+        padding-bottom: 2.2rem;
+      }
+      .timeline-item:last-child {
+        padding-bottom: 0;
+      }
+      .timeline-dot {
+        position: absolute;
+        left: -2.42rem;
+        top: 0.2rem;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--indigo);
+        box-shadow: 0 0 0 4px var(--bg), 0 0 0 5px var(--border);
+      }
+      .timeline-year {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--indigo);
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+      }
+      .timeline-title {
+        font-weight: 700;
+        color: var(--white);
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+      }
+      .timeline-desc {
+        font-size: 0.85rem;
+        color: var(--lavender);
+        line-height: 1.6;
+      }
+
+      /* ── PROCESS STEPS ── */
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.3rem;
+      }
+      .process-step {
+        padding: 1.4rem 1.3rem;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--bg);
+      }
+      .process-num {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+      .process-title {
+        font-weight: 700;
+        color: var(--white);
+        margin: 0.3rem 0 0.4rem;
+      }
+      .process-desc {
+        font-size: 0.82rem;
+        color: var(--lavender);
+        line-height: 1.5;
+      }
+
+      /* ── SKILL PROFICIENCY ── */
+      .skill-level {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.65rem;
+        color: var(--indigo);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+
+      /* ── ABOUT EXTRAS ── */
+      .exploring-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1.2rem;
+      }
+      .last-updated {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        color: var(--muted);
+        margin-top: 1.4rem;
+      }
+
       /* ── RESPONSIVE ── */
+      @media (max-width: 900px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 768px) {
+        .nav-toggle {
+          display: flex;
+        }
+        .nav-links {
+          position: fixed;
+          top: 64px;
+          left: 0;
+          right: 0;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0;
+          background: var(--bg);
+          border-bottom: 1px solid var(--border);
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+        }
+        .nav-links.open {
+          max-height: 420px;
+        }
+        .nav-links li {
+          width: 100%;
+        }
+        .nav-links a {
+          display: block;
+          padding: 1rem 6vw;
+          width: 100%;
+          border-bottom: 1px solid var(--border);
+        }
+        .nav-links a.nav-cta {
+          margin: 1rem 6vw;
+          width: fit-content;
+        }
+      }
       @media (max-width: 768px) {
         .hero-grid {
           grid-template-columns: 1fr;
@@ -779,19 +1318,32 @@
     </style>
   </head>
   <body>
+    <div id="progress-bar"></div>
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
 
     <!-- NAV -->
     <nav>
       <a href="#hero" class="nav-logo">akhila<span>.</span>dev</a>
-      <ul class="nav-links">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#journey">Journey</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li>
+          <a href="./Shaik_Akhila_Resume.pdf" class="btn-outline-sm" download>Resume ↓</a>
+        </li>
+        <li>
+          <button class="theme-toggle" id="theme-toggle" title="Toggle theme" aria-label="Toggle light/dark theme">◐</button>
+        </li>
         <li><a href="#contact" class="nav-cta">Contact</a></li>
       </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
 
     <!-- HERO -->
@@ -814,8 +1366,8 @@
               <span class="stat-label">LeetCode Solved</span>
             </div>
             <div class="stat-item">
-              <span class="stat-num">4+</span>
-              <span class="stat-label">Live Projects</span>
+              <span class="stat-num">15+</span>
+              <span class="stat-label">Projects Built</span>
             </div>
             <div class="stat-item">
               <span class="stat-num">8.975</span>
@@ -889,6 +1441,75 @@
       </div>
     </section>
 
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-inner">
+        <div class="section-label">Get To Know Me</div>
+        <h2>About</h2>
+        <p class="section-sub">The short version of how I got here.</p>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I'm a Computer Science undergraduate at RGUKT Nuzvid, and most of
+              what I know about building software I learned by shipping it —
+              not just reading about it. Over the last year I've built and
+              deployed 15+ full-stack applications, ranging from an AI-assisted
+              assignment grading platform to a real-time collaboration suite
+              with live documents, chat and video calls.
+            </p>
+            <p>
+              My internship at Labmentix gave me real production experience
+              with React and Node.js in a team environment, and a second
+              internship at VaultofCodes let me ship a client-facing marketing
+              site end to end — from build to deployment to handoff. Outside of
+              internships, I keep a steady rhythm of solving DSA problems
+              (240+ on LeetCode) and pushing side projects that force me to
+              learn something new: payments, real-time sockets, CRDTs, ML-based
+              plagiarism detection, PDF manipulation.
+            </p>
+            <p>
+              I like backend and systems work as much as UI — designing an
+              eligibility engine or a state machine is just as satisfying to me
+              as polishing a page transition.
+            </p>
+            <div class="exploring-tags">
+              <span class="tag">Currently exploring:</span>
+              <span class="tag">Applied ML for eval systems</span>
+              <span class="tag">Real-time systems (CRDTs, WebRTC)</span>
+              <span class="tag">System design</span>
+            </div>
+            <div class="last-updated">Last updated: September 2026</div>
+          </div>
+          <div class="about-facts">
+            <div class="fact-row">
+              <span class="fact-label">Based in</span>
+              <span class="fact-value">Andhra Pradesh, India</span>
+            </div>
+            <div class="fact-row">
+              <span class="fact-label">Studying</span>
+              <span class="fact-value">B.Tech CSE, RGUKT Nuzvid (2023–2027)</span>
+            </div>
+            <div class="fact-row">
+              <span class="fact-label">CGPA</span>
+              <span class="fact-value">8.975 / 10</span>
+            </div>
+            <div class="fact-row">
+              <span class="fact-label">Currently</span>
+              <span class="fact-value">Open to internships & full-time opportunities</span>
+            </div>
+            <div class="fact-row">
+              <span class="fact-label">DSA</span>
+              <span class="fact-value">240+ LeetCode problems</span>
+            </div>
+            <div class="fact-row">
+              <span class="fact-label">Focus areas</span>
+              <span class="fact-value">Full-stack, backend systems, APIs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- SKILLS -->
     <section id="skills">
       <div class="section-inner">
@@ -899,14 +1520,17 @@
         </p>
         <div class="skills-grid">
           <div class="skill-card">
+            <span class="skill-level">Daily use</span>
             <div class="skill-card-title">Languages</div>
             <div class="skill-tags">
               <span class="tag">Python</span>
               <span class="tag">JavaScript</span>
               <span class="tag">SQL</span>
+              <span class="tag">C#</span>
             </div>
           </div>
           <div class="skill-card">
+            <span class="skill-level">Hands-on</span>
             <div class="skill-card-title">Frontend</div>
             <div class="skill-tags">
               <span class="tag">React.js</span>
@@ -918,21 +1542,46 @@
             </div>
           </div>
           <div class="skill-card">
+            <span class="skill-level">Hands-on</span>
             <div class="skill-card-title">Backend</div>
             <div class="skill-tags">
               <span class="tag">Node.js</span>
               <span class="tag">Express.js</span>
               <span class="tag">REST APIs</span>
+              <span class="tag">JWT Auth</span>
+              <span class="tag">Socket.IO</span>
+              <span class="tag">WebSocket</span>
             </div>
           </div>
           <div class="skill-card">
+            <span class="skill-level">Building</span>
+            <div class="skill-card-title">AI / ML (applied) Exposure</div>
+            <div class="skill-tags">
+              <span class="tag">LangChain / LangGraph</span>
+              <span class="tag">Groq LLMs</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <span class="skill-level">Hands-on</span>
             <div class="skill-card-title">Databases</div>
             <div class="skill-tags">
               <span class="tag">MongoDB</span>
               <span class="tag">Supabase</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">SQL</span>
             </div>
           </div>
           <div class="skill-card">
+            <span class="skill-level">Comfortable</span>
+            <div class="skill-card-title">Payments & Realtime</div>
+            <div class="skill-tags">
+              <span class="tag">Stripe</span>
+              <span class="tag">Google Maps API</span>
+              <span class="tag">WebRTC</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <span class="skill-level">Daily use</span>
             <div class="skill-card-title">Tools & Deployment</div>
             <div class="skill-tags">
               <span class="tag">Git</span>
@@ -945,6 +1594,19 @@
             </div>
           </div>
           <div class="skill-card">
+            <span class="skill-level">Hands-on</span>
+            <div class="skill-card-title">Core CS</div>
+            <div class="skill-tags">
+              <span class="tag">DSA</span>
+              <span class="tag">OOP</span>
+              <span class="tag">DBMS</span>
+              <span class="tag">OS</span>
+              <span class="tag">CN</span>
+              <span class="tag">Software Engineering</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <span class="skill-level">Practiced</span>
             <div class="skill-card-title">Soft Skills</div>
             <div class="skill-tags">
               <span class="tag">Problem Solving</span>
@@ -955,6 +1617,7 @@
             </div>
           </div>
         </div>
+       
       </div>
     </section>
 
@@ -964,162 +1627,396 @@
         <div class="section-label">Work</div>
         <h2>Featured Projects</h2>
         <p class="section-sub">
-          Production-ready applications built and deployed independently.
+          Featured work below goes deep on 5 projects — problem, build,
+          what got hard, what came out of it. Everything else is in Smaller
+          Builds, filterable by type.
         </p>
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-name">Assignment Checker</div>
-              <div class="project-links">
-                <a
-                  href="https://assignment-checker-frontend.vercel.app/"
-                  class="icon-link"
-                  title="Live Demo"
-                  >↗</a
-                >
-                <a
-                  href="https://github.com/shaikakhila26/assignment-checker-frontend"
-                  class="icon-link"
-                  title="GitHub"
-                  >⌥</a
-                >
+
+        <div class="featured-work-list">
+          <div class="case-card">
+            <div class="case-top-row">
+              <span class="case-tag">AI / ML · Full-Stack</span>
+              <span class="case-date">2026</span>
+            </div>
+            <div class="case-title">Gradient — AI-Powered Assignment Evaluation Platform</div>
+            <div class="case-grid-inner">
+              <div>
+                <div class="case-block-label">Problem</div>
+                <div class="case-block-text">Manually grading descriptive answers doesn't scale, and copy-paste plagiarism is hard to catch by eye.</div>
+              </div>
+              <div>
+                <div class="case-block-label">Built</div>
+                <div class="case-block-text">A classroom platform where a Sentence-Transformers CrossEncoder semantically grades answers against a reference, and an ML pipeline (TF-IDF + SBERT + n-gram Jaccard) flags plagiarism.</div>
+              </div>
+              <div>
+                <div class="case-block-label">What got hard</div>
+                <div class="case-block-text">Tuning the correctness threshold so partial-credit answers didn't get graded as flat-out wrong — needed a 3-way classification, not binary.</div>
+              </div>
+              <div>
+                <div class="case-block-label">Result</div>
+                <div class="case-block-text">Live grading + plagiarism dashboard with scheduled result release and analytics for teachers.</div>
               </div>
             </div>
-            <p class="project-desc">
-              Academic assignment management platform with dedicated dashboards
-              for teachers and students. Features assignment creation,
-              submission tracking, classroom management, and result workflows.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">JavaScript</span>
+            <div class="project-tech" style="margin-bottom: 1rem;">
+              <span class="tech-tag">React 19</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Sentence Transformers</span>
               <span class="tech-tag">Supabase</span>
-              <span class="tech-tag">REST APIs</span>
+              <span class="tech-tag">Recharts</span>
+            </div>
+            <div class="case-links-row">
+              <a href="https://assignment-checker-frontend.vercel.app/" class="text-link" title="Live Demo">↗ Live Demo</a>
+              <a href="https://github.com/shaikakhila26/assignment-checker-frontend" class="text-link" title="GitHub — Frontend">⌥ Frontend</a>
+              <a href="https://github.com/shaikakhila26/assignment-checker-backend" class="text-link" title="GitHub — Backend ">⌥+ Backend </a>
             </div>
           </div>
 
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-name">Ride Beacon</div>
-              <div class="project-links">
-                <a
-                  href="https://ridebeacon-frontend.vercel.app/"
-                  class="icon-link"
-                  title="Live Demo"
-                  >↗</a
-                >
-                <a
-                  href="https://github.com/shaikakhila26/ridebeacon-frontend"
-                  class="icon-link"
-                  title="GitHub"
-                  >⌥</a
-                >
+          <div class="case-card">
+            <div class="case-top-row">
+              <span class="case-tag">Backend · Fintech Sim</span>
+              <span class="case-date">2026</span>
+            </div>
+            <div class="case-title">Credence — Digital Loan Application & Underwriting Simulation</div>
+            <div class="case-grid-inner">
+              <div>
+                <div class="case-block-label">Problem</div>
+                <div class="case-block-text">Wanted to understand how loan underwriting actually works end-to-end — not just a CRUD form, but the decision logic behind it.</div>
+              </div>
+              <div>
+                <div class="case-block-label">Built</div>
+                <div class="case-block-text">A 9-stage application state machine (KYC → eligibility → terms → disbursed), a DTI-aware eligibility engine, and an EMI/IRR calculator solved by bisection.</div>
+              </div>
+              <div>
+                <div class="case-block-label">What got hard</div>
+                <div class="case-block-text">Getting IRR to converge correctly for edge-case loan terms — closed-form solutions don't exist, so numerically solving it reliably took real care.</div>
+              </div>
+              <div>
+                <div class="case-block-label">Result</div>
+                <div class="case-block-text">A working simulation with real KYC checksum validation (PAN, Aadhaar/Verhoeff, IFSC) end to end.</div>
               </div>
             </div>
-            <p class="project-desc">
-              Uber-like ride booking platform with role-based systems for riders
-              and drivers. Integrated Google Maps for live location tracking and
-              Stripe for seamless payment processing.
-            </p>
-            <div class="project-tech">
+            <div class="project-tech" style="margin-bottom: 1rem;">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">Supabase</span>
+            </div>
+            <div class="case-links-row">
+              <a href="https://credence-frontend-gules.vercel.app/" class="text-link" title="Live Demo">↗ Live Demo </a>
+              <a href="https://github.com/shaikakhila26/credence-frontend" class="text-link">⌥ Frontend </a>
+              <a href="https://github.com/shaikakhila26/credence-backend" class="text-link">⌥+ Backend </a>
+            </div>
+          </div>
+
+          <div class="case-card">
+            <div class="case-top-row">
+              <span class="case-tag">Full-Stack · Marketplace</span>
+              <span class="case-date">2026</span>
+            </div>
+            <div class="case-title">WorkWithTrust — Freelance Marketplace</div>
+            <div class="case-grid-inner">
+              <div>
+                <div class="case-block-label">Problem</div>
+                <div class="case-block-text">Freelance platforms need trust on both sides — payment security for clients, guaranteed payout for freelancers.</div>
+              </div>
+              <div>
+                <div class="case-block-label">Built</div>
+                <div class="case-block-text">A two-sided marketplace with gigs, orders and reviews, Stripe Checkout + webhooks for payment, and Socket.IO for real-time order messaging.</div>
+              </div>
+              <div>
+                <div class="case-block-label">What got hard</div>
+                <div class="case-block-text">Making Stripe webhook handling idempotent so a retried webhook couldn't double-credit a payout.</div>
+              </div>
+              <div>
+                <div class="case-block-label">Result</div>
+                <div class="case-block-text">End-to-end gig-to-payment flow with live chat between client and freelancer.</div>
+              </div>
+            </div>
+            <div class="project-tech" style="margin-bottom: 1rem;">
+              <span class="tech-tag">React 19</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Stripe</span>
+              <span class="tech-tag">Socket.IO</span>
+            </div>
+            <div class="case-links-row">
+              <a href="https://workwithtrust-frontend.vercel.app/" class="text-link">↗ Live Demo </a>
+              <a href="https://github.com/shaikakhila26/workwithtrust-frontend" class="text-link">⌥ Frontend </a>
+              <a href="https://github.com/shaikakhila26/workwithtrust-backend" class="text-link">⌥+ Backend </a>
+            </div>
+          </div>
+
+          <div class="case-card">
+            <div class="case-top-row">
+              <span class="case-tag">Real-Time · Collaboration</span>
+              <span class="case-date">2026</span>
+            </div>
+            <div class="case-title">Synergy — Real-Time Collaboration Suite</div>
+            <div class="case-grid-inner">
+              <div>
+                <div class="case-block-label">Problem</div>
+                <div class="case-block-text">Teams juggle docs, chat, tasks and calls across five different apps — wanted to see what it'd take to unify them.</div>
+              </div>
+              <div>
+                <div class="case-block-label">Built</div>
+                <div class="case-block-text">CRDT-based collaborative documents (Yjs + TipTap over WebSocket), a Kanban board, chat, WebRTC video calls, and a Konva whiteboard.</div>
+              </div>
+              <div>
+                <div class="case-block-label">What got hard</div>
+                <div class="case-block-text">Getting Yjs document state to persist correctly through LevelDB without losing edits on reconnect — my first real CRDT work.</div>
+              </div>
+              <div>
+                <div class="case-block-label">Result</div>
+                <div class="case-block-text">A working multi-user workspace where two tabs editing the same doc merge conflict-free in real time.</div>
+              </div>
+            </div>
+            <div class="project-tech" style="margin-bottom: 1rem;">
+              <span class="tech-tag">React 19</span>
+              <span class="tech-tag">Yjs / CRDT</span>
+              <span class="tech-tag">Socket.IO</span>
+              <span class="tech-tag">WebRTC</span>
+              <span class="tech-tag">React Konva</span>
+            </div>
+            <div class="case-links-row">
+              <a href="https://synergy-frontend-amber.vercel.app/" class="text-link">↗ Live Demo </a>
+              <a href="https://github.com/shaikakhila26/synergy-frontend" class="text-link">⌥ Frontend</a>
+              <a href="https://github.com/shaikakhila26/synergy-backend" class="text-link">⌥+ Backend</a>
+            </div>
+          </div>
+
+          <div class="case-card">
+            <div class="case-top-row">
+              <span class="case-tag">Full-Stack · Real-Time</span>
+              <span class="case-date">2025</span>
+            </div>
+            <div class="case-title">Ride Beacon — Real-Time Ride Booking Platform</div>
+            <div class="case-grid-inner">
+              <div>
+                <div class="case-block-label">Problem</div>
+                <div class="case-block-text">Wanted to rebuild the core of an Uber-style app: live location, dynamic fare, and role-based dashboards.</div>
+              </div>
+              <div>
+                <div class="case-block-label">Built</div>
+                <div class="case-block-text">Rider/driver dashboards, Google Maps live tracking, Socket.IO fare and ride-status updates, Stripe payments, PDFKit receipts.</div>
+              </div>
+              <div>
+                <div class="case-block-label">What got hard</div>
+                <div class="case-block-text">Keeping driver location updates smooth over Socket.IO without flooding the client with re-renders on every GPS tick.</div>
+              </div>
+              <div>
+                <div class="case-block-label">Result</div>
+                <div class="case-block-text">A deployed, working booking flow from ride request to payment receipt.</div>
+              </div>
+            </div>
+            <div class="project-tech" style="margin-bottom: 1rem;">
               <span class="tech-tag">React</span>
               <span class="tech-tag">Node.js</span>
               <span class="tech-tag">Express.js</span>
               <span class="tech-tag">Supabase</span>
               <span class="tech-tag">Stripe</span>
             </div>
+            <div class="case-links-row">
+              <a href="https://ridebeacon-frontend.vercel.app/" class="text-link">↗ Live Demo</a>
+              <a href="https://github.com/shaikakhila26/ridebeacon-frontend" class="text-link">⌥ Frontend</a>
+              <a href="https://github.com/shaikakhila26/ridebeacon-backend" class="text-link">⌥+ Backend </a>
+            </div>
           </div>
+        </div>
 
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-name">Vibe</div>
-              <div class="project-links">
-                <a
-                  href="https://social-app-rho-jade.vercel.app/"
-                  class="icon-link"
-                  title="Live Demo"
-                  >↗</a
-                >
-                <a
-                  href="https://github.com/shaikakhila26/social-app"
-                  class="icon-link"
-                  title="GitHub"
-                  >⌥</a
-                >
-              </div>
-            </div>
-            <p class="project-desc">
-              Full-stack social networking app with JWT auth, post creation,
-              image uploads, likes, comments, and personalized feeds. Media
-              handled via Cloudinary CDN.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">Express.js</span>
-              <span class="tech-tag">MongoDB</span>
-              <span class="tech-tag">Cloudinary</span>
+        <h3 style="font-size: 1.1rem; color: var(--white); margin-bottom: 0.4rem;">Smaller Builds</h3>
+        <p class="section-sub" style="margin-bottom: 1.6rem;">
+          Fundamentals practice, internship deliverables, and tools built to
+          learn a specific piece of tech rather than ship a flagship product.
+        </p>
+        <div class="filter-bar" id="filter-bar">
+          <button class="filter-btn active" data-filter="all">All (10)</button>
+          <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+          <button class="filter-btn" data-filter="backend">Backend</button>
+          <button class="filter-btn" data-filter="ai">AI / ML</button>
+          <button class="filter-btn" data-filter="frontend">Frontend Only</button>
+        </div>
+        <div class="smaller-builds-grid" id="smaller-builds-grid">
+          <div class="build-card" data-cat="fullstack">
+            <span class="build-cat">Full-Stack</span>
+            <div class="build-title">Vibe</div>
+            <div class="build-stack">React · Node.js · Express · MongoDB</div>
+            <div class="build-desc">Social networking app — JWT auth, posts, likes, comments, infinite-scroll feed, optimistic UI, Cloudinary media.</div>
+            <div class="case-links-row">
+              <a href="https://social-app-rho-jade.vercel.app/" class="text-link">↗ Demo</a>
+              <a href="https://github.com/shaikakhila26/social-app" class="text-link">⌥ GitHub</a>
             </div>
           </div>
+          <div class="build-card" data-cat="fullstack backend">
+            <span class="build-cat">Full-Stack</span>
+            <div class="build-title">FileHaven</div>
+            <div class="build-stack">React 19 · Node.js · PostgreSQL · Google OAuth</div>
+            <div class="build-desc">Google-Drive-style file manager: nested folders, starring, trash/restore, versioning, shareable links, LRU-cached search.</div>
+            <div class="case-links-row">
+              <a href="https://filehaven-frontend.vercel.app/" class="text-link">↗ Demo </a>
+              <a href="https://github.com/shaikakhila26/filehaven-frontend" class="text-link">⌥ Frontend </a>
+              <a href="https://github.com/shaikakhila26/filehaven-backend" class="text-link">⌥+ Backend </a>
+            </div>
+          </div>
+          <div class="build-card" data-cat="fullstack">
+            <span class="build-cat">Full-Stack</span>
+            <div class="build-title">Seal the Sign</div>
+            <div class="build-stack">React · PDF.js · pdf-lib + Fontkit · MongoDB</div>
+            <div class="build-desc">PDF e-signature tool — 20+ signature fonts, drag-to-place positioning, email signature requests with 48h TTL expiry.</div>
+            <div class="case-links-row">
+              <a href="https://seal-the-sign.vercel.app/" class="text-link">↗ Demo </a>
+              <a href="https://github.com/shaikakhila26/seal-the-sign-frontend" class="text-link">⌥ Frontend </a>
+              <a href="https://github.com/shaikakhila26/seal-the-sign-backend" class="text-link">⌥+ Backend </a>
+            </div>
+          </div>
+          <div class="build-card" data-cat="backend">
+            <span class="build-cat">Backend</span>
+            <div class="build-title">Task Management App</div>
+            <div class="build-stack">Node.js · Express · MongoDB Atlas · Swagger</div>
+            <div class="build-desc">Backend fundamentals exercise — clean MVC structure, versioned /api/v1 routes, express-validator, Swagger docs.</div>
+            <div class="case-links-row">
+              <a href="https://task-management-frontend-ten-virid.vercel.app/" class="text-link">↗ Demo </a>
+              <a href="https://github.com/shaikakhila26/task-management-frontend" class="text-link">⌥ Frontend </a>
+              <a href="https://github.com/shaikakhila26/task-management-backend" class="text-link">⌥+ Backend </a>
+            </div>
+          </div>
+          <div class="build-card" data-cat="ai">
+            <span class="build-cat">AI / ML</span>
+            <div class="build-title">Vault IQ</div>
+            <div class="build-stack">Python · Streamlit · LangGraph · Google Drive API</div>
+            <div class="build-desc">Natural-language Google Drive search agent — LangGraph + Llama 3.1 (Groq) picks between drive-search and folder-search tools.</div>
+            <div class="case-links-row">
+              <a href="https://vaultiqfrontend-c6udvznwvjeym32qcqtudt.streamlit.app/" class="text-link">↗ Demo</a>
+              <a href="https://github.com/shaikakhila26/vaultIQ_frontend" class="text-link">⌥ Frontend</a>
+              <a href="https://github.com/shaikakhila26/vaultIQ_backend" class="text-link">⌥+ Backend</a>
+            </div>
+          </div>
+          <div class="build-card" data-cat="frontend">
+            <span class="build-cat">Frontend</span>
+            <div class="build-title">HR Workflow Designer</div>
+            <div class="build-stack">React · TypeScript · React Flow · Zustand</div>
+            <div class="build-desc">No-backend visual workflow builder for HR processes — discriminated-union node types, DFS-based DAG validation.</div>
+            <div class="case-links-row">
+              <a href="https://github.com/shaikakhila26/hr-workflow-designer" class="text-link">⌥ GitHub </a>
+            </div>
+          </div>
+          <div class="build-card" data-cat="fullstack">
+            <span class="build-cat">Full-Stack</span>
+            <div class="build-title">LCA Platform</div>
+            <div class="build-stack">React · Chart.js/Plotly · Leaflet · Supabase</div>
+            <div class="build-desc">Life-cycle-assessment platform — emissions/circularity scoring, Sankey flow diagrams, transport mapping, materials marketplace.</div>
+            <div class="case-links-row">
+              <a href="https://lca-frontend-psi.vercel.app/" class="text-link">↗ Demo </a>
+              <a href="https://github.com/shaikakhila26/lca-frontend" class="text-link">⌥ GitHub </a>
+            </div>
+          </div>
+          <div class="build-card" data-cat="frontend">
+            <span class="build-cat">Frontend · Internship</span>
+            <div class="build-title">EditKaro.in</div>
+            <div class="build-stack">HTML5 · CSS3 · Vanilla JS · Google Apps Script</div>
+            <div class="build-desc">4-page marketing site for a video-editing agency — VaultofCodes internship deliverable. Forms write to Google Sheets, no backend server.</div>
+            <div class="case-links-row">
+              <a href="https://editkaro-website-iota.vercel.app/" class="text-link">↗ Demo </a>
+              <a href="https://github.com/shaikakhila26/editkaro-website" class="text-link">⌥ GitHub </a>
+            </div>
+          </div>
+          <div class="build-card" data-cat="frontend">
+            <span class="build-cat">Frontend</span>
+            <div class="build-title">Proof Sheet</div>
+            <div class="build-stack">HTML · CSS · Vanilla JavaScript</div>
+            <div class="build-desc">Free tool to arrange photos into a printable proof-sheet collage — fully client-side, nothing ever uploaded to a server.</div>
+            <div class="case-links-row">
+              <a href="https://proofsheet.vercel.app/" class="text-link">↗ Demo</a>
+              <a href="https://github.com/shaikakhila26/proofsheet" class="text-link">⌥ GitHub</a>
+            </div>
+          </div>
+          <div class="build-card" data-cat="frontend">
+            <span class="build-cat">Frontend</span>
+            <div class="build-title">This Portfolio</div>
+            <div class="build-stack">HTML5 · CSS3 · Vanilla JS</div>
+            <div class="build-desc">This site — dependency-free, single-file, hand-written. Scroll-spy nav, filterable projects, theme toggle, no framework.</div>
+            <div class="case-links-row">
+              <a href="#hero" class="text-link">↗ You're on it</a>
+              <a href="https://github.com/shaikakhila26/my-portfolio" class="text-link">⌥ GitHub</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
 
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-name">Vault IQ</div>
-              <div class="project-links">
-                <a
-                  href="https://vaultiqfrontend-c6udvznwvjeym32qcqtudt.streamlit.app/"
-                  class="icon-link"
-                  title="Live Demo"
-                  >↗</a
-                >
-                <a
-                  href="https://github.com/shaikakhila26/vaultIQ_frontend"
-                  class="icon-link"
-                  title="GitHub"
-                  >⌥</a
-                >
-              </div>
-            </div>
-            <p class="project-desc">
-              Document search and management platform with Google Drive
-              integration. AI-powered search for efficient file discovery,
-              metadata-based retrieval, and chat history management.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Streamlit</span>
-              <span class="tech-tag">Google Drive API</span>
-            </div>
+
+    <!-- JOURNEY -->
+    <section id="journey" style="background: var(--surface);">
+      <div class="section-inner">
+        <div class="section-label">How I Got Here</div>
+        <h2>Engineering Journey</h2>
+        <p class="section-sub">Chronological, not embellished — the real order things happened in.</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2023</div>
+            <div class="timeline-title">Started B.Tech CSE</div>
+            <div class="timeline-desc">Began Computer Science & Engineering at RGUKT Nuzvid after a PUC year with a 9.76/10 CGPA. Foundations in programming and problem solving.</div>
           </div>
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-name">Proof Sheet</div>
-              <div class="project-links">
-                <a
-                  href="https://proofsheet.vercel.app/"
-                  class="icon-link"
-                  title="Live Demo"
-                  >↗</a
-                >
-                <a
-                  href="https://github.com/shaikakhila26/proofsheet"
-                  class="icon-link"
-                  title="GitHub"
-                  >⌥</a
-                >
-              </div>
-            </div>
-            <p class="project-desc">
-              A small, free tool to arrange multiple photos into one printable
-              collage — styled like an old film proof sheet on a light table.
-              Everything runs client-side in the browser; no images are ever
-              uploaded to a server.
-            </p>
-            <div class="project-tech">
-              <span class="tech-tag">HTML</span>
-              <span class="tech-tag">CSS</span>
-              <span class="tech-tag">Vanilla JavaScript</span>
-            </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2024–Early 2025</div>
+            <div class="timeline-title">Web fundamentals, DSA practice</div>
+            <div class="timeline-desc">Built early React/Node fundamentals and started a consistent LeetCode practice that would grow to 240+ problems solved.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">Mid–Late 2025</div>
+            <div class="timeline-title">First internship, hackathons, first NPTEL certs</div>
+            <div class="timeline-desc">Started as a Web Development Intern at Labmentix (Jun 2025). Placed Top 4 of 185+ teams at the SIH 2025 internal round, and took part in the Amaravati Quantum Valley Hackathon. Completed NPTEL courses in AI search methods and cloud computing.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2026</div>
+            <div class="timeline-title">Second internship, deeper systems work</div>
+            <div class="timeline-desc">Wrapped up the Labmentix internship in January, then completed a summer internship at VaultofCodes building and shipping EditKaro.in end to end. Added NPTEL certifications in deep learning and OOAD, and built most of the backend-heavy projects on this site (Credence, WorkWithTrust, Synergy, FileHaven).</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2027 · upcoming</div>
+            <div class="timeline-title">Graduating — software engineering roles</div>
+            <div class="timeline-desc">Expected graduation. Actively preparing for full-stack and backend engineering roles.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="section-inner">
+        <div class="section-label">Engineering Approach</div>
+        <h2>How I Build</h2>
+        <p class="section-sub">The loop I actually follow, most of the time.</p>
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="process-num">01</div>
+            <div class="process-title">Scope it</div>
+            <div class="process-desc">Write down what "done" looks like before opening the editor — usually as a couple of user flows, not a spec doc.</div>
+          </div>
+          <div class="process-step">
+            <div class="process-num">02</div>
+            <div class="process-title">Pick the boring tool</div>
+            <div class="process-desc">Reach for the well-understood library first. New tech only earns a place if it solves something the boring option can't.</div>
+          </div>
+          <div class="process-step">
+            <div class="process-num">03</div>
+            <div class="process-title">Build the thin slice</div>
+            <div class="process-desc">Get one real flow working end-to-end before fanning out into every feature — a working narrow app beats a half-built wide one.</div>
+          </div>
+          <div class="process-step">
+            <div class="process-num">04</div>
+            <div class="process-title">Break it on purpose</div>
+            <div class="process-desc">Poke at edge cases myself — bad input, race conditions, empty states — instead of waiting for a user to find them first.</div>
+          </div>
+          <div class="process-step">
+            <div class="process-num">05</div>
+            <div class="process-title">Ship and document</div>
+            <div class="process-desc">Deploy it somewhere real, write down how to run it, and treat "someone else can use it" as the actual finish line.</div>
           </div>
         </div>
       </div>
@@ -1131,30 +2028,56 @@
         <div class="section-label">Career</div>
         <h2>Experience</h2>
         <p class="section-sub">Professional work in production environments.</p>
-        <div class="exp-card">
-          <div>
-            <div class="exp-role">Web Development Intern</div>
-            <div class="exp-company">Labmentix · Remote</div>
+        <div style="display: flex; flex-direction: column; gap: 1.4rem;">
+          <div class="exp-card">
+            <div>
+              <div class="exp-role">Web Development Intern</div>
+              <div class="exp-company">Labmentix · Remote</div>
+            </div>
+            <div class="exp-duration">Jun 2025 – Jan 2026</div>
+            <ul class="exp-bullets">
+              <li>
+                Developed responsive frontend components using React.js and
+                Tailwind CSS for production web applications.
+              </li>
+              <li>
+                Collaborated on building RESTful APIs using Node.js and
+                Express.js for backend services.
+              </li>
+              <li>
+                Debugged and resolved application issues, improving
+                reliability and overall user experience.
+              </li>
+              <li>
+                Used Git and GitHub workflows for version control and
+                seamless team collaboration.
+              </li>
+            </ul>
           </div>
-          <div class="exp-duration">Jun 2025 – Jan 2026</div>
-          <ul class="exp-bullets">
-            <li>
-              Developed responsive frontend components using React.js and
-              Tailwind CSS for production web applications.
-            </li>
-            <li>
-              Collaborated on building RESTful APIs using Node.js and Express.js
-              for backend services.
-            </li>
-            <li>
-              Debugged and resolved application issues, improving reliability
-              and overall user experience.
-            </li>
-            <li>
-              Used Git and GitHub workflows for version control and seamless
-              team collaboration.
-            </li>
-          </ul>
+          <div class="exp-card">
+            <div>
+              <div class="exp-role">Web Development Intern — Summer Internship</div>
+              <div class="exp-company">VaultofCodes · Remote</div>
+            </div>
+            <div class="exp-duration">May 2026 – Jun 2026</div>
+            <ul class="exp-bullets">
+              <li>
+                Built EditKaro.in, a responsive 4-page marketing website, using
+                HTML5, CSS3 and vanilla JavaScript — no framework, no build
+                step.
+              </li>
+              <li>
+                Connected newsletter and contact forms to a Google Apps
+                Script backend that writes submissions directly into Google
+                Sheets, solving a CORS/preflight issue along the way.
+              </li>
+              <li>
+                Deployed the site on Vercel and delivered full project
+                documentation and a presentation as the internship
+                submission.
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -1198,6 +2121,121 @@
       </div>
     </section>
 
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" style="background: var(--surface);">
+      <div class="section-inner">
+        <div class="section-label">Credentials</div>
+        <h2>Certifications</h2>
+        <p class="section-sub">
+          NPTEL certified coursework, internship documentation, and
+          course certificates.
+        </p>
+
+        <h3 style="font-size: 1rem; color: var(--indigo); font-family: 'JetBrains Mono', monospace; margin-bottom: 1rem;">NPTEL Certifications</h3>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="cert-name">OOAD Using UML, Java and Patterns</div>
+            <div class="cert-meta">NPTEL · IIT Kharagpur · Jan–Apr 2026</div>
+            <div class="cert-score">Score: 70% </div>
+            <a class="cert-link" href="https://drive.google.com/file/d/19IwUs_YuAv-S1eap_OIpNq-xPPBLC1_h/view?usp=sharing" target="_blank" rel="noopener">View certificate ↗</a>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Artificial Intelligence: Search Methods for Problem Solving</div>
+            <div class="cert-meta">NPTEL · IIT Madras · Jul–Oct 2025</div>
+            <div class="cert-score">Score: 69% </div>
+            <a class="cert-link" href="https://drive.google.com/file/d/1Itq56voxhkaYpVctdoPWx798xogIAE6l/view?usp=sharing" target="_blank" rel="noopener">View certificate ↗</a>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Cloud Computing</div>
+            <div class="cert-meta">NPTEL · IIT Kharagpur · Jul–Oct 2025</div>
+            <div class="cert-score">Score: 69% </div>
+            <a class="cert-link" href="https://drive.google.com/file/d/1Kvr6cp4QurnqjAgr3gFWBUfVV3DqidQ6/view?usp=sharing" target="_blank" rel="noopener">View certificate ↗</a>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Foundations of Deep Learning: Concepts and Applications</div>
+            <div class="cert-meta">NPTEL · IISc Bangalore · Jan–Apr 2026</div>
+            <div class="cert-score">Score: 73% </div>
+            <a class="cert-link" href="https://drive.google.com/file/d/1GawagtXMCnurVM5VCCFQC4CqYndJI158/view?usp=sharing" target="_blank" rel="noopener">View certificate ↗</a>
+          </div>
+        </div>
+        
+
+        <h3 style="font-size: 1rem; color: var(--indigo); font-family: 'JetBrains Mono', monospace; margin: 2.4rem 0 1rem;">Internship Documentation</h3>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="cert-name">Labmentix — Internship Completion Certificate</div>
+            <div class="cert-meta">Web Development Intern · Jun 2025 – Jan 2026</div>
+            <a class="cert-link" href="https://drive.google.com/file/d/1mVhDUEp8Vwe2bhlSVoB6zgnp7ntNiZC1/view?usp=sharing" target="_blank" rel="noopener">View certificate ↗</a>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Labmentix — Experience Letter</div>
+            <div class="cert-meta">Web Development Intern</div>
+            <a class="cert-link" href="https://drive.google.com/file/d/1u0YF594973Prv-YLx55n2KLhnpmn3mAh/view?usp=sharing" target="_blank" rel="noopener">View letter ↗</a>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Labmentix — Letter of Recommendation</div>
+            <div class="cert-meta">Web Development Intern</div>
+            <a class="cert-link" href="https://drive.google.com/file/d/1N2-LV7rRaRkhnBkKSyeQWYJG7ZqTk3oG/view?usp=sharing" target="_blank" rel="noopener">View letter ↗</a>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">VaultofCodes — Summer Internship Certificate</div>
+            <div class="cert-meta">Web Development Intern · May–Jun 2026</div>
+            <a class="cert-link" href="https://drive.google.com/file/d/1bdt35RzRUCaW1NpYwMGaKU4fexcsroZ7/view?usp=sharing" target="_blank" rel="noopener">View certificate ↗</a>
+          </div>
+
+         <div class="cert-card">
+            <div class="cert-name">Hamari Pehchaan NGO certificate</div>
+            <div class="cert-meta">Social Entrepreneurship Intern</div>
+            <a class="cert-link" href="https://drive.google.com/file/d/1MKqMyrFobM5OXeAmT_nduM917Sq6xR30/view?usp=sharing" target="_blank" rel="noopener">View certificate ↗</a>
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-name">Hamari Pehchaan NGO LOR</div>
+            <div class="cert-meta">Social Entrepreneurship Intern</div>
+            <a class="cert-link" href="https://drive.google.com/file/d/1QOaIawxQpO7F6EFhq_MvOcR3m-FD-ct2/view?usp=sharing" target="_blank" rel="noopener">View certificate ↗</a>
+          </div>
+
+        </div>
+
+        
+
+        <h3 style="font-size: 1rem; color: var(--indigo); font-family: 'JetBrains Mono', monospace; margin: 2.4rem 0 1rem;">Other Course Certificates</h3>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="cert-name">Python Programming</div>
+            <div class="cert-meta">CodeKivy</div>
+            <a class="cert-link" href="https://drive.google.com/file/d/123zFLK47HQ41tAw3Rye4b46QoaKeeUZs/view?usp=drive_link" target="_blank" rel="noopener">View certificate ↗</a>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Java Programming</div>
+            <div class="cert-meta">Codio</div>
+            <a class="cert-link" href="https://drive.google.com/file/d/15UYWkoAK9gAE3tdg32Fxm4v0gnKbILEi/view?usp=sharing" target="_blank" rel="noopener">View certificate ↗</a>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Artificial Intelligence</div>
+            <div class="cert-meta">IBM</div>
+            <a class="cert-link" href="https://drive.google.com/file/d/16VEPsUNeD6vvz4Hq2rNNS8vclg4UqDe6/view?usp=sharing" target="_blank" rel="noopener">View certificate ↗</a>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Wadhwani Foundation Certificate </div>
+            <div class="cert-meta">Impactful writing skills</div>
+            <a class="cert-link" href="https://drive.google.com/file/d/11fVXUKLouGIf6QOv8qn_BJIQa-hSYCxG/view?usp=sharing" target="_blank" rel="noopener">View certificate ↗</a>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Wadhwani Foundation Certificate </div>
+            <div class="cert-meta">Effective speaking and listening skills</div>
+            <a class="cert-link" href="https://drive.google.com/file/d/1mX6Pdd6ktp9LvaMVCXv2WC7Ar_2Ecw3L/view?usp=sharing" target="_blank" rel="noopener">View certificate ↗</a>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">"Digital Heroes" Certificate</div>
+            <div class="cert-meta">Full stack Developer Training</div>
+            <a class="cert-link" href="https://drive.google.com/file/d/1w4bwMLHPBXnCA4U4nDh0tpJrC43jiloa/view?usp=drive_link" target="_blank" rel="noopener">View certificate ↗</a>
+          </div>
+        </div>
+       
+      </div>
+    </section>
+
     <!-- ACHIEVEMENTS -->
     <section id="achievements">
       <div class="section-inner">
@@ -1211,36 +2249,43 @@
             <div class="achieve-icon">⚡</div>
             <div class="achieve-text">
               Solved <strong>240+ LeetCode problems</strong> across Data
-              Structures and Algorithms.
+              Structures and Algorithms — <a href="https://leetcode.com/u/Shaik_Akhila2605/" target="_blank" style="color: var(--indigo);">view profile ↗</a>.
             </div>
           </div>
           <div class="achieve-item">
             <div class="achieve-icon">🏆</div>
             <div class="achieve-text">
               <strong>Top 4 Team</strong> at Smart India Hackathon Internal
-              Round 2025.
+              Round 2025 — <a href="https://drive.google.com/file/d/1pG8syxbnOP6RrHUb_ekmmfmgYoCMPZQb/view?usp=drive_link" target="_blank" style="color: var(--indigo);">view certificate ↗</a>.
             </div>
           </div>
           <div class="achieve-item">
             <div class="achieve-icon">🚀</div>
             <div class="achieve-text">
               <strong>Participant</strong> — Amaravati Quantum Valley Hackathon
-              2025.
+              2025 — <a href="https://drive.google.com/file/d/1Hdwhti6V5ZmnPo1s6FlSUPmwXWB9sGxw/view?usp=sharing" target="_blank" style="color: var(--indigo);">view certificate ↗</a>.
             </div>
           </div>
           <div class="achieve-item">
             <div class="achieve-icon">💼</div>
             <div class="achieve-text">
-              <strong>Web Development Intern</strong> at Labmentix — building
-              production-grade applications.
+              <strong>Two internships</strong> completed — Labmentix (web
+              development) and VaultofCodes (client website delivery).
             </div>
           </div>
           <div class="achieve-item">
             <div class="achieve-icon">📦</div>
             <div class="achieve-text">
               Built and deployed
-              <strong>4+ production-ready full-stack applications</strong> with
-              live deployments.
+              <strong>15+ full-stack and AI-powered applications</strong>,
+              spanning payments, real-time systems, and ML-based evaluation.
+            </div>
+          </div>
+          <div class="achieve-item">
+            <div class="achieve-icon">🎓</div>
+            <div class="achieve-text">
+              <strong>4× NPTEL Certifications</strong> in AI, Cloud
+              Computing, Deep Learning and OOAD.
             </div>
           </div>
         </div>
@@ -1284,6 +2329,18 @@
               <span class="contact-link-icon">⌥</span>
               github.com/shaikakhila26
             </a>
+            <a
+              href="https://leetcode.com/u/Shaik_Akhila2605/"
+              target="_blank"
+              class="contact-link"
+            >
+              <span class="contact-link-icon">{}</span>
+              leetcode.com/u/Shaik_Akhila2605
+            </a>
+            <a href="./Shaik_Akhila_Resume.pdf" class="contact-link" download>
+              <span class="contact-link-icon">↓</span>
+              Download Résumé (PDF)
+            </a>
           </div>
         </div>
       </div>
@@ -1294,5 +2351,94 @@
       <span class="footer-text">© 2026 Shaik Akhila</span>
       <span class="footer-text">Built with ♥ · Designed to impress</span>
     </footer>
+
+    <button id="back-to-top" title="Back to top" aria-label="Back to top">↑</button>
+
+    <script>
+      // Scroll progress bar
+      const progressBar = document.getElementById("progress-bar");
+      function updateProgress() {
+        const h = document.documentElement;
+        const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+        progressBar.style.width = scrolled + "%";
+      }
+      document.addEventListener("scroll", updateProgress);
+
+      // Mobile nav toggle
+      const navToggle = document.getElementById("nav-toggle");
+      const navLinks = document.getElementById("nav-links");
+      navToggle.addEventListener("click", () => navLinks.classList.toggle("open"));
+      navLinks.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => navLinks.classList.remove("open"))
+      );
+
+      // Scroll-spy active nav link
+      const sections = document.querySelectorAll("section[id]");
+      const navAnchors = document.querySelectorAll(".nav-links a[href^='#']");
+      function updateActiveLink() {
+        let current = "";
+        sections.forEach((sec) => {
+          const rect = sec.getBoundingClientRect();
+          if (rect.top <= 120 && rect.bottom >= 120) current = sec.id;
+        });
+        navAnchors.forEach((a) => {
+          a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+        });
+      }
+      document.addEventListener("scroll", updateActiveLink);
+
+      // Theme toggle (dark default, light optional)
+      const themeToggle = document.getElementById("theme-toggle");
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("light");
+        themeToggle.textContent = document.body.classList.contains("light") ? "◑" : "◐";
+      });
+
+      // Project filter (Smaller Builds grid)
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const projectCards = document.querySelectorAll(".build-card");
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const filter = btn.dataset.filter;
+          projectCards.forEach((card) => {
+            const cats = card.dataset.cat || "";
+            card.hidden = filter !== "all" && !cats.split(" ").includes(filter);
+          });
+        });
+      });
+
+      // Back to top button
+      const backToTop = document.getElementById("back-to-top");
+      document.addEventListener("scroll", () => {
+        backToTop.classList.toggle("show", window.scrollY > 600);
+      });
+      backToTop.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" })
+      );
+
+      // Hero role typing effect
+      const roleEl = document.querySelector(".hero-eyebrow");
+      const roles = ["Full-Stack Developer", "Backend Engineer", "React Developer", "B.Tech CSE @ RGUKT"];
+      let roleIdx = 0, charIdx = 0, deleting = false;
+      function typeRole() {
+        const current = roles[roleIdx];
+        roleEl.textContent = deleting
+          ? current.substring(0, charIdx--)
+          : current.substring(0, charIdx++);
+        if (!deleting && charIdx === current.length + 1) {
+          deleting = true;
+          setTimeout(typeRole, 1400);
+          return;
+        }
+        if (deleting && charIdx === 0) {
+          deleting = false;
+          roleIdx = (roleIdx + 1) % roles.length;
+        }
+        setTimeout(typeRole, deleting ? 35 : 65);
+      }
+      setTimeout(typeRole, 600);
+    </script>
   </body>
 </html>
